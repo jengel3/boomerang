@@ -1,0 +1,15 @@
+{
+  "name": "Boomerang",
+  "version": "0.0.1",
+  "description": "Boomerang Cydia repository creator",
+  "bin": {
+    "test-module-exec": "bin/test-module.js"
+  },
+  "main": "./lib/index.js",
+  "preferGlobal": "true",
+  "author": "Jake0oo0 <jake0oo0dev@gmail.com>",
+  "license": "GPL v3",
+  "dependencies": {
+    "prompt": "^0.2.14"
+  }
+}
