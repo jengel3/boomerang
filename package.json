@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "Boomerang Cydia repository creator",
   "bin": {
-    "test-module-exec": "bin/test-module.js"
+    "test-module-exec": "bin/boomerang-init.js"
   },
   "main": "./lib/index.js",
   "preferGlobal": "true",

@@ -1,0 +1,23 @@
+{
+	"name": "InstaMute",
+	"package": "com.jake0oo0.instamute",
+	"author": "Jake0oo0",
+	"version": "1.0.1",
+	"description": "Mute the more annoying users that you follow on Instagram from your main feed",
+	"changelog": {
+		"1.0.0": [
+			"Initial Release"
+		],
+		"1.0.1": [
+			"Fixed preference issue with 64bit devices"
+		]
+	},
+	"screenshots": {
+		"instamute1.jpg": "Mute users from their profile",
+		"instamute2.jpg": "Edit muted users in the settings",
+		"instamute3.jpg": "Unmute users from their profile"
+	},
+	"links": {
+		"<span class=\"glyphicon glyphicon-heart\"></span> Developer's Twitter": "https://twitter.com/itsjake88"
+	}
+}

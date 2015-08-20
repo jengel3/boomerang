@@ -7,18 +7,143 @@
 	
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+	<style>
+		body {
+			background-color: azure;
+		}
+		h1, .package-desc {
+			margin-left: 7px;
+		}
+		.badge-label {
+			border-radius:1em;
+		}
+		.panel, .list-group-item, .alert {
+		 	border-radius: 0 !important;
+		}
+		.list-group-item:last-child {
+			margin-bottom: -1px;
+		}
+		.list-group {
+			margin-bottom: 0px;
+		}
+		.subshots {
+			text-align: center;
+		}
+		.subshots:nth-child(1) {
+			margin-bottom: 10px;
+		}
+		.package-buttons {
+			margin-top: 10px;
+		}
+		.repo-buttons {
+			margin-top: 20px;
+		}
+		a:link, a:visited, a:hover {
+			text-decoration: none;
+		}
+		.package-error {
+			display: none;
+		}
+	</style>
 </head>
 <body>
 	<div class="container">
 		<div class="package row">
 			<div class="header">
-				<h1 class="package-name">This is a package description</h1>
+				<h1 class="package-name"></h1>
+			</div>
+		<hr>
+		</div>
+
+		<div class="row alert alert-danger package-error"></div>
+		
+		<div class="package-info">
+			<div class="package-info row">
+				<p class="package-desc"></p>
+			</div>
+
+			<div class="row panel panel-default">
+			  <div class="panel-heading">Changelog <div class="label label-primary badge-label latest-version"></div></div>
+			  <div class="panel-body changelog-list">
+			  </div>
+			</div>
+
+			<br>
+
+			<div class="row screenshots">
+			</div>
+
+			<div class="row package-buttons">
+				<ul class="list-group">
+				  <a href="screenshots" class="screenshots-link"><li class="list-group-item"><span class="glyphicon glyphicon-picture"></span> Screenshots</li></a>
+				  <a href="changelog" class="changelog-link"><li class="list-group-item"><span class="glyphicon glyphicon-tasks"></span> Full Changelog</li></a>
+				</ul>
+			</div>
+
+			<div class="row repo-buttons">
+				<ul class="list-group">
+				  <a href="https://github.com/Jake0oo0/boomerang"><li class="list-group-item"><span class="glyphicon glyphicon-wrench"></span> Boomerang Repository</li></a>
+				  <a href="https://twitter.com/itsjake88"><li class="list-group-item"><span class="glyphicon glyphicon-heart"></span> Follow Boomerang Dev</li></a>
+				</ul>
 			</div>
 		</div>
-		
-		<div class="package-info row">
-			<p class="package-desc">This is a package description.</p>
-		</div>
+
 	</div>
+	<script>
+	$(document).ready(function() {
+		var dPackage = getParameterByName("p");
+
+		if (!dPackage) {
+			$(".package-error").text("This package doesn't seem to exist!").css("display", "block");
+			$(".package-info").css("display", "none");
+			$(".package-name").text("Package not found");
+			return;
+		}
+
+		$.getJSON("../packages/" + dPackage + ".json", function(data) {
+			document.title = data.name + " by " + data.author;
+		  $(".package-name").text(data.name);
+		  $(".package-desc").text(data.description);
+		  $(".latest-version").text(data.version + " (latest)");
+		  var cList = $(".changelog-list");
+		  var changes = data.changelog[data.version];
+		  for (var c in changes) {
+		  	var change = changes[c];
+		  	cList.append("<li>" + change + "</li>")
+		  }
+
+		  var count = 0;
+		  var screenshots = data.screenshots;
+		  var sKeys = Object.keys(screenshots);
+		  for (var s in sKeys) {
+		  	var screenshot = sKeys[s];
+
+		  	if (count % 2 === 0) {
+		  		$(".screenshots").append("<div class=\"subshots col-xs-12\"></div>");
+		  	}
+
+		  	$(".screenshots .subshots:last-child").append("<img class=\"img-responsive col-xs-6\" src=\"/images/" + screenshot + "\" title=\"" + screenshots[screenshot] + "\">");
+		  	count += 1;
+		  }
+
+		  $(".changelog-link").attr("href", "changelog?p=" + dPackage);
+		  $(".screenshots-link").attr("href", "screenshots?p=" + dPackage);
+		})
+		.fail(function() {
+			$(".package-error").text("An error occurred while retrieving package info!").css("display", "block");
+			$(".package-info").css("display", "none");
+			$(".package-name").text("Repository Error");
+			return;
+		});
+
+		function getParameterByName(name) {
+		    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+		    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+		        results = regex.exec(location.search);
+		    return results === null ? null : decodeURIComponent(results[1].replace(/\+/g, " "));
+		}
+	});
+	</script>
 </body>
 </html>

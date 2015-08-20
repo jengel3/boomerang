@@ -25,7 +25,7 @@ var init = function() {
     fs.mkdirSync(dir + "/" + "depictions");
     fs.mkdirSync(dir + "/" + "debs");
     fs.writeFileSync(dir + "/CNAME", result.domain);
-    fs.writeFileSync(dir + "/README.md", "# Cydia Repo: " + result.domain);
+    fs.writeFileSync(dir + "/README.md", "# Boomerang Cydia Repo: " + result.domain);
     fs.createReadStream(__dirname + "/../templates/add.sh").pipe(fs.createWriteStream(dir + "/add.sh"));
   });
 }
