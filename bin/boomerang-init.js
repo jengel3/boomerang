@@ -32,7 +32,8 @@ var init = function() {
     fs.mkdirSync(dir + "/" + "packages");
     fs.writeFileSync(dir + "/CNAME", result.domain);
     fs.writeFileSync(dir + "/README.md", "# Boomerang Cydia Repo: " + result.domain);
-    fs.copySync(templates + "/add.sh", dir + "/add.sh");
+    fs.copySync(templates + "/repo.sh", dir + "/repo.sh");
+    fs.copySync(templates + "/Release", dir + "/Release");
     fs.copySync(templates + "/depictions", dir + "/depictions");
   });
 }
