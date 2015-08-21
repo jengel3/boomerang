@@ -20,6 +20,9 @@ if [ "$1" == "add" ]; then
 
 elif [ "$1" == "update" ]; then
 	echo "Updating packaging...";
+else
+	echo "Usage: $0 <command>" >&2
+	exit 1
 fi
 
 rm Packages.bz2
