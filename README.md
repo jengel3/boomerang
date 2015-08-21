@@ -20,6 +20,11 @@ Servers often aren't very cheap, and download bandwidth further raises the cost 
     * Run ```git checkout -B gh-pages``` to checkout the web branch
     * Run ```git push -u origin gh-pages``` to push your changes
 
+### Clone the example repository
+0. You can find the example Boomerang repository at the repository [here](https://github.com/Jake0oo0/boomerang-example).
+0. Clone the repository and change the remotes. You can now push your changes to your own repository.
+
+-----------
 
 ## Package JSON Files
 * Packages are stored as ```<package>.json``` in the ```packages/``` directory. These files store all the relevant information about a package so that the website is able to retrieve it as users access depictions.
@@ -58,10 +63,6 @@ Servers often aren't very cheap, and download bandwidth further raises the cost 
 * ***Changelog:*** A hash of versions corresponding to an array of changes for the specific version. There should always be at least one version equal to the current version listed above.
 * ***Screenshots:*** Once again, a hash of image file names that correspond to a caption or description for the image. Image paths are relative, and all images are stored in the ```images/``` directory.
 * ***Links:*** Also a hash of HTML or text which corresponds to a link for the specified text. The key may be raw HTML if more content should be added, or it can be plain text. The URL can also be relative or an exact URL.
-
-### Clone the example repository
-0. You can find the example Boomerang repository at the repository [here](https://github.com/Jake0oo0/boomerang-example).
-0. Clone the repository and change the remotes. You can now push your changes to your own repository.
 
 ## License
 MIT
