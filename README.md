@@ -64,6 +64,23 @@ Servers often aren't very cheap, and download bandwidth further raises the cost 
 * ***Screenshots:*** Once again, a hash of image file names that correspond to a caption or description for the image. Image paths are relative, and all images are stored in the ```images/``` directory.
 * ***Links:*** Also a hash of HTML or text which corresponds to a link for the specified text. The key may be raw HTML if more content should be added, or it can be plain text. The URL can also be relative or an exact URL.
 
+## Setup
+* Edit the ```Release``` file with custom information. 
+
+### Example Release File
+```
+Origin: Boomerang Repo # Name specifier
+Label: Boomerang Repo # Label in Cydia 
+Suite: stable
+Version: 1.0
+Codename: ios
+Architectures: iphoneos-arm
+Components: main
+Description: My Boomerang Repository # Repository description
+```
+
+* You should change the commented lines, and remove the comments when done.
+
 ## License
 MIT
 
