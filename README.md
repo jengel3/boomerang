@@ -24,7 +24,7 @@ Servers often aren't very cheap, and download bandwidth further raises the cost 
 ## Package JSON Files
 * Packages are stored as ```<package>.json``` in the ```packages/``` directory. These files store all the relevant information about a package so that the website is able to retrieve it as users access depictions.
 
-### Example Package File (InstaMute):
+### Example Package File ([InstaMute](http://moreinfo.thebigboss.org/moreinfo/depiction.php?file=instamuteDp)):
 ```json
 {
 	"name": "InstaMute",
