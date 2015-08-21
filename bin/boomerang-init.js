@@ -31,7 +31,7 @@ var init = function() {
     fs.mkdirSync(dir + "/" + "images");
     fs.mkdirSync(dir + "/" + "packages");
     fs.writeFileSync(dir + "/CNAME", result.domain);
-    fs.writeFileSync(dir + "/README.md", "# Boomerang Cydia Repo: " + result.domain);
+    fs.copySync("README.md", dir + "/README.md")
     fs.copySync(templates + "/repo.sh", dir + "/repo.sh");
     fs.copySync(templates + "/Release", dir + "/Release");
     fs.copySync(templates + "/depictions", dir + "/depictions");
