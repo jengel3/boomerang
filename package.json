@@ -1,13 +1,25 @@
 {
   "name": "Boomerang",
-  "version": "0.0.1",
+  "version": "1.0.0",
+  "author": "Jake0oo0 <jake0oo0dev@gmail.com>",
   "description": "Boomerang Cydia repository creator",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Jake0oo0/boomerang"
+  },
+  "issues": {
+    "url": "https://github.com/Jake0oo0/boomerang/issues"
+  },
+  "keywords": [
+    "cydia",
+    "repository",
+    "gh-pages"
+  ],
   "bin": {
     "test-module-exec": "bin/boomerang-init.js"
   },
   "main": "./lib/index.js",
   "preferGlobal": "true",
-  "author": "Jake0oo0 <jake0oo0dev@gmail.com>",
   "license": "GPL v3",
   "dependencies": {
     "fs-extra": "^0.23.1",
