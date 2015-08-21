@@ -35,6 +35,7 @@ var init = function() {
     fs.copySync(templates + "/repo.sh", dir + "/repo.sh");
     fs.copySync(templates + "/Release", dir + "/Release");
     fs.copySync(templates + "/depictions", dir + "/depictions");
+    fs.copySync(templates + "/css", dir + "/css");
   });
 }
 
