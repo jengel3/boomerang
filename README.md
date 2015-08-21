@@ -51,19 +51,13 @@ Servers often aren't very cheap, and download bandwidth further raises the cost 
 }
 ```
 
-***Name:*** The name of the package that will be displayed as the title.
-
-***Package:*** The full package of your .deb file that will be distributed.
-
-***Author:*** The author's name or username, along with an email if wanted.
-
-***Version:*** The current version o fthe application/tweak.
-
-***Changelog:*** A hash of versions corresponding to an array of changes for the specific version. There should always be at least one version equal to the current version listed above.
-
-***Screenshots:*** Once again, a hash of image file names that correspond to a caption or description for the image. Image paths are relative, and all images are stored in the ```images/``` directory.
-
-***Links:*** Also a hash of HTML or text which corresponds to a link for the specified text. The key may be raw HTML if more content should be added, or it can be plain text. The URL can also be relative or an exact URL.
+* ***Name:*** The name of the package that will be displayed as the title.
+* ***Package:*** The full package of your .deb file that will be distributed.
+* ***Author:*** The author's name or username, along with an email if wanted.
+* ***Version:*** The current version o fthe application/tweak.
+* ***Changelog:*** A hash of versions corresponding to an array of changes for the specific version. There should always be at least one version equal to the current version listed above.
+* ***Screenshots:*** Once again, a hash of image file names that correspond to a caption or description for the image. Image paths are relative, and all images are stored in the ```images/``` directory.
+* ***Links:*** Also a hash of HTML or text which corresponds to a link for the specified text. The key may be raw HTML if more content should be added, or it can be plain text. The URL can also be relative or an exact URL.
 
 ### Clone the example repository
 0. You can find the example Boomerang repository at the repository [here](https://github.com/Jake0oo0/boomerang-example).
