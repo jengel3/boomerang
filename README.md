@@ -81,6 +81,10 @@ Description: My Boomerang Repository # Repository description
 
 * You should change the commented lines, and remove the comments when done.
 
+### Package Management
+* To add a package run ```./repo.sh add <package> <.deb file>```
+* To force-update the ```Packages``` file, run ```./repo.sh update```
+
 ## License
 MIT
 
