@@ -24,7 +24,6 @@
 		.list-group-item:last-child {
 			margin-bottom: -1px;
 		}
-		
 		.subshots {
 			text-align: center;
 		}
@@ -85,8 +84,8 @@
 
 			<div class="row repo-buttons">
 				<ul class="list-group">
-				  <a href="https://github.com/Jake0oo0/boomerang"><li class="list-group-item"><span class="glyphicon glyphicon-wrench"></span> Boomerang Repository</li></a>
-				  <a href="https://twitter.com/itsjake88"><li class="list-group-item"><span class="glyphicon glyphicon-heart"></span> Follow Boomerang Dev</li></a>
+				  <a href="https://github.com/Jake0oo0/boomerang" target="_blank"><li class="list-group-item"><span class="glyphicon glyphicon-wrench"></span> Boomerang Repository</li></a>
+				  <a href="https://twitter.com/itsjake88" target="_blank"><li class="list-group-item"><span class="glyphicon glyphicon-heart"></span> Follow Boomerang Dev</li></a>
 				</ul>
 			</div>
 		</div>
@@ -137,7 +136,7 @@
 		  var lKeys = Object.keys(links);
 		  for (var l in lKeys) {
 		  	var link = lKeys[l];
-				var wrap = $("<a href=\"" + links[link] + "\"><li class=\"list-group-item\"></li></a>");
+				var wrap = $("<a href=\"" + links[link] + "\" target=\"_blank\"><li class=\"list-group-item\"></li></a>");
 				wrap.find(".list-group-item").append($.parseHTML(link));
 				$(".package-buttons .list-group").append(wrap);
 		  }
