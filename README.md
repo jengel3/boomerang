@@ -98,7 +98,7 @@ Description: My Boomerang Repository # Repository description on sources view
 * To force-update the ```Packages``` file, run ```./repo.sh update```
 
 ## License
-MIT
+[MIT](http://choosealicense.com/licenses/mit/)
 
 I would prefer that you leave at least one of the links to my [twitter](https://twitter.com/itsjake88) or to the boomerang repository in the depictions.
 
