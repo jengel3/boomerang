@@ -12,8 +12,6 @@ var init = function() {
     if (exists) {
       console.error("Folder already exists");
       return;
-    } else {
-      fs.mkdirSync(dir);
     }
   } else {
     dir = ".";
@@ -23,16 +21,18 @@ var init = function() {
   var templates = __dirname + "/../templates";
 
   prompt.get(['domain'], function(err, result) {
-    if (!result.domain) {
+    if (!result || !result.domain) {
       console.error("Please enter a valid domain");
       return;
     }
+    fs.mkdirSync(dir);
     fs.mkdirSync(dir + "/" + "debs");
     fs.mkdirSync(dir + "/" + "images");
     fs.mkdirSync(dir + "/" + "packages");
     fs.writeFileSync(dir + "/CNAME", result.domain);
-    fs.copySync("README.md", dir + "/README.md")
+    fs.copySync(__dirname + "/../README.md", dir + "/README.md")
     fs.copySync(templates + "/repo.sh", dir + "/repo.sh");
+    fs.copySync(templates + "/CydiaIcon.png", dir + "/CydiaIcon.png");
     fs.copySync(templates + "/Release", dir + "/Release");
     fs.copySync(templates + "/depictions", dir + "/depictions");
     fs.copySync(templates + "/css", dir + "/css");

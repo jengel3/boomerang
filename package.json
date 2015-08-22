@@ -16,11 +16,11 @@
     "gh-pages"
   ],
   "bin": {
-    "test-module-exec": "bin/boomerang-init.js"
+    "boomerang-init": "bin/boomerang-init.js"
   },
-  "main": "./lib/index.js",
+  "main": "./bin/boomerang-init.js",
   "preferGlobal": "true",
-  "license": "GPL v3",
+  "license": "GPL-v3",
   "dependencies": {
     "fs-extra": "^0.23.1",
     "prompt": "^0.2.14"
