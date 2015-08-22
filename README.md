@@ -7,6 +7,8 @@ Boomerang is a static Cydia repository that can be run on Github Pages using Jek
 Servers often aren't very cheap, and download bandwidth further raises the cost of Cydia repository servers. In order to counter this, Github Pages can be used to host a Cydia repository. Boomerang provides a very simple installation and update process, along with a modern Bootstrap design.
 
 ## Installation
+* Boomerang is best setup on a Linux based machine due to the scripts involved in updating the repository.
+* A full [theos](http://iphonedevwiki.net/index.php/Theos/Setup) should provide you with all the tools you need to get Boomerang running. You will need ```dkpg-dev``` installed.
 
 ### Node Generator
 0. Install the node.js Boomerang generator with ```npm install boomerang-repo -g```
@@ -35,13 +37,13 @@ Servers often aren't very cheap, and download bandwidth further raises the cost 
 	"name": "InstaMute",
 	"package": "com.jake0oo0.instamute",
 	"author": "Jake0oo0",
-	"version": "1.0.1",
+	"version": "1.0.2",
 	"description": "Mute the more annoying users that you follow on Instagram from your main feed",
 	"changelog": {
 		"1.0.0": [
 			"Initial Release"
 		],
-		"1.0.1": [
+		"1.0.2": [
 			"Fixed preference issue with 64bit devices"
 		]
 	},
