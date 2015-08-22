@@ -12,7 +12,7 @@ Servers often aren't very cheap, and download bandwidth further raises the cost 
 
 ### Node Generator
 0. Install the node.js Boomerang generator with ```npm install boomerang-repo -g```
-0. Run ```boomerang-init _directory_``` to generate a Boomerang repository.
+0. Run ```boomerang-init <directory>``` to generate a Boomerang repository.
 0. If you are using Github Pages
   0. Create a Github Repository and add the remote
   0. In your new Boomerang directory:
