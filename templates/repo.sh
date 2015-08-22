@@ -32,11 +32,17 @@ for deb in debs/*.deb
 do
 	echo "Processing $deb...";
   dpkg-deb -f "$deb" >> Packages
-  dpkg-deb -f "$deb" Package | echo "Depiction: https://$(head -n 1 CNAME)/depiction?p=$(xargs -0)" >> Packages
+  md5sum "$deb" | echo "MD5sum: $(awk '{ print $1 }')" >> Packages
+  wc -c "$deb" | echo "Size: $(awk '{ print $1 }')" >> Packages
+  echo "Filename: $deb" >> Packages
+  dpkg-deb -f "$deb" Package | echo "Depiction: https://$(head -n 1 CNAME)/depictions/?p=$(xargs -0)" >> Packages
   echo "" >> Packages
 done
 
+echo "" >> Packages; ## Add extra new line
+
 bzip2 < Packages > Packages.bz2
+gzip -9c < Packages > Packages.gz
 
 git add -A
 now=$(date +"%I:%M %m-%d-%Y")
