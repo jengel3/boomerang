@@ -23,7 +23,7 @@ Servers often aren't very cheap, and download bandwidth further raises the cost 
     * Run ```git push -u origin gh-pages``` to push your changes
 
 ### Clone the example repository
-0. You can find the example Boomerang repository at the repository [here](https://github.com/Jake0oo0/boomerang-example).
+0. You can find the example Boomerang repository at the repository [here](https://github.com/Jake0oo0/boomerang.jakes.site).
 0. Clone the repository and change the remotes. You can now push your changes to your own repository.
 
 -----------
@@ -31,7 +31,7 @@ Servers often aren't very cheap, and download bandwidth further raises the cost 
 ## Package JSON Files
 * Packages are stored as ```<package>.json``` in the ```packages/``` directory. These files store all the relevant information about a package so that the website is able to retrieve it as users access depictions.
 
-### Example Package File ([InstaMute](http://moreinfo.thebigboss.org/moreinfo/depiction.php?file=instamuteDp)):
+### Example Package File ([InstaMute](https://boomerang.jakes.site/depictions/?p=com.jake0oo0.instamute)):
 ```json
 {
 	"name": "InstaMute",
