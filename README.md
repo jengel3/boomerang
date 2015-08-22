@@ -8,7 +8,7 @@ Servers often aren't very cheap, and download bandwidth further raises the cost 
 
 ## Installation
 * Boomerang is best setup on a Linux based machine due to the scripts involved in updating the repository.
-* A full [theos](http://iphonedevwiki.net/index.php/Theos/Setup) should provide you with all the tools you need to get Boomerang running. You will need ```dkpg-dev``` installed.
+* A full [theos](http://iphonedevwiki.net/index.php/Theos/Setup) installation should provide you with all the tools you need to get Boomerang running. You will need ```dkpg-dev``` installed.
 
 ### Node Generator
 0. Install the node.js Boomerang generator with ```npm install boomerang-repo -g```
