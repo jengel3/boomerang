@@ -85,11 +85,13 @@ Description: My Boomerang Repository # Repository description on sources view
 
 ### Repository Icon
 * You can and should change the ```CydiaIcon.png``` file to an icon of your liking. The icon should be ```32x32```, but can also have retina versions at either ```64x64``` or ```96x96```. The icon will always be displayed at ```32x32``` in Cydia.
+* The Cydia icon also serves as the favicon and logo on the index page.
 
 ### Custom Pages
 * All pages can be edited to make them customized and unique to your repository.
 * If you make any major edits, I suggest pull requesting said changes so that everyone can use them.
 * I would prefer if you leave at least one of the links to my Twitter or Github repository in the depictions, but it is your choice.
+* I also suggest customizing the home page to be unique, and have more content. You could add a list of packages, or create a blog using [jekyll](https://pages.github.com/).
 
 ### Package Management
 * To add a package run ```./repo.sh add <package> <.deb file>```
