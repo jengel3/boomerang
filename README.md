@@ -69,14 +69,14 @@ Servers often aren't very cheap, and download bandwidth further raises the cost 
 
 ### Example Release File
 ```
-Origin: Boomerang Repo # Name specifier
-Label: Boomerang Repo # Label in Cydia 
+Origin: Boomerang Repo # Source Editor - Short description
+Label: Boomerang Repo # Package List
 Suite: stable
 Version: 1.0
 Codename: ios
 Architectures: iphoneos-arm
 Components: main
-Description: My Boomerang Repository # Repository description
+Description: My Boomerang Repository # Repository description on sources view
 ```
 
 * You should change the commented lines, and remove the comments when done.
