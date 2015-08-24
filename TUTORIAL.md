@@ -12,6 +12,8 @@ If you're on a Mac, I don't own a Mac, so you're going to need to figure out how
 
 If you are on Linux, there's a variety of distributions that will require different installations, but I have found that both the theos [setup guide](http://iphonedevwiki.net/index.php/Theos/Setup) and Coolstar's pre-configured theos [installation zip](https://www.reddit.com/r/jailbreak/comments/2cm08q/preconfigured_theos_for_linux_with_arm64_support/) have been very useful in getting it running successfully.
 
+If you don't want to use theos, as a rough idea, you're going to need a set of utilities similar to those that theos uses, which can be found [here](http://iphonedevwiki.net/index.php/Theos/Setup#Requirements). `dpkg` is a requirement, and can be installed for Mac with this [SO answer](http://stackoverflow.com/questions/8779597/what-is-alternative-to-dpkg-for-mac). On Linux, you can install `dpkg` from your package manager. On Windows, you'll need to add these [custom scripts](https://gist.github.com/Jake0oo0/080e70aede2b7434cc18) to your path in order to replicate dpkg on Windows. All other dependencies should be a straight-forward install.
+
 If you aren't able to get theos working correctly, Google can likely be very helpful with any issues, or you can ask in /r/jailbreakdevelopers. If you are setting up a repository, you should probably already have an idea of how to get theos working and how to make tweaks, so little support for that will be provided here.
 
 Now that we have a working theos installation, we can move on to setting up the web repository.
