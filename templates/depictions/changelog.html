@@ -22,7 +22,9 @@
 			<div class="panel row panel-default">
 				<div class="panel-heading">
 					<h1 class="package-name"></h1>
-					<span class="glyphicon glyphicon-tasks"></span> <small>Full Changelog</small>
+					<a class="package-back">
+						<span class="glyphicon glyphicon-menu-left"></span>Description
+					</a>
 				</div>
 			</div>
 
@@ -42,9 +44,10 @@
 	 				return;
 				}
 
-				$.getJSON("/repo/depictions/packages/" + dPackage + ".json", function(data) {
+				$.getJSON("packages/" + dPackage + ".json", function(data) {
 					document.title = data.name + " by " + data.author;
 					$(".package-name").text(data.name);
+					$(".package-back").attr("href", "index.html?p=" + dPackage);
 					var latest = data.version;
 					var versions = Object.keys(data.changelog).reverse();
 					for (var v in versions) {

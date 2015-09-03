@@ -93,7 +93,7 @@
 					return;
 				}
 
-		  		$.getJSON("/repo/depictions/packages/" + dPackage + ".json", function(data) {
+		  		$.getJSON("packages/" + dPackage + ".json", function(data) {
 					document.title = data.name + " by " + data.author;
 					$(".package-name").text(data.name);
 					$(".package-desc").text(data.description);
@@ -114,7 +114,7 @@
 						if (count % 2 === 0) {
 							$(".screenshots").append("<div class=\"subshots col-xs-6\"></div>");
 						}
-						$(".screenshots .subshots:last-child").append("<div class=\"col-xs-12\"><img class=\"img-responsive\" src=\"/repo/depictions/screenshots/" + dPackage + "/" + screenshot + "\" title=\"" + screenshots[screenshot] + "\"></div>");
+						$(".screenshots .subshots:last-child").append("<div class=\"col-xs-12\"><img class=\"img-responsive\" src=\"screenshots/" + dPackage + "/" + screenshot + "\" title=\"" + screenshots[screenshot] + "\"></div>");
 						count += 1;
 					}
 					$(".changelog-link").attr("href", "changelog.html?p=" + dPackage);
