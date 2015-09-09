@@ -6,11 +6,11 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="icon" href="/repo/CydiaIcon.png">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css">
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 		<style>
 			body {background-color: #efeff4;}
 			a:link, a:visited, a:hover {text-decoration: none;}
-			h1, .package-desc {margin-left: 7px;}
+			h1, h2, .package-desc {margin-left: 7px;}
 			.badge-label {border-radius:1em;}
 			.panel, .list-group-item, .alert {border-radius: 0 !important;}
 			.list-group-item:last-child {margin-bottom: -1px;}
@@ -20,6 +20,9 @@
 			.package-buttons {margin-top: 10px;}
 			.repo-buttons {margin-top: 20px;}
 			.package-error {display: none;}
+			.screenshots {display: none;}
+			.fullchangelog {display: none;}
+			.latest-version {vertical-align: right;}
 		</style>
 	</head>
 	<body>
@@ -45,19 +48,26 @@
 
 				<div class="row panel panel-default">
 					<div class="panel-heading">
-						<span class="glyphicon glyphicon-picture"></span> Screenshots
+						<span class="glyphicon glyphicon-pencil"></span> Recent Changes
+						<div class="label label-info badge-label latest-version"></div>
 					</div>
-					<div class="row screenshots" align="center"></div>
+					<div class="panel-body changelog-list"></div>
 				</div>
 
 				<div class="row panel panel-default">
-                	<div class="panel-heading">
-						<a href="/repo/depictions/changelog.html" class="changelog-link">
-							<span class="glyphicon glyphicon-tasks"></span> Full Changelog
-				        	<div class="label label-info badge-label latest-version"></div>
-						</a>
-                	</div>
-                	<div class="panel-body changelog-list"></div>
+					<div class="panel-heading screenshots-header">
+						<span class="glyphicon glyphicon-picture"></span> Screenshots
+						<small><span class="glyphicon glyphicon-triangle-bottom"></span></small>
+					</div>
+					<div class="row screenshots"></div>
+				</div>
+
+				<div class="row panel panel-default">
+                	<div class="panel-heading fullchangelog-header">
+						<span class="glyphicon glyphicon-tasks"></span> Full Changelog
+						<small><span class="glyphicon glyphicon-triangle-bottom"></span></small>
+					</div>
+					<div class="package-info package-versions fullchangelog"></div>
             	</div>
 
 			</div>
@@ -97,8 +107,9 @@
 					document.title = data.name + " by " + data.author;
 					$(".package-name").text(data.name);
 					$(".package-desc").text(data.description);
-					$(".latest-version").text(data.version + " (current)");
+					$(".latest-version").text(data.version);
 					$(".package-author").text(" by " + data.author);
+
 					var cList = $(".changelog-list");
 					var changes = data.changelog[data.version];
 					for (var c in changes) {
@@ -106,18 +117,43 @@
 						cList.append("<li>" + change + "</li>")
 					}
 
+					$(".screenshots-header").click(function() {
+						$(".screenshots").slideToggle(function() {
+						});
+					});
 					var count = 0;
 					var screenshots = data.screenshots;
 					var sKeys = Object.keys(screenshots);
 					for (var s in sKeys) {
 						var screenshot = sKeys[s];
 						if (count % 2 === 0) {
-							$(".screenshots").append("<div class=\"subshots col-xs-6\"></div>");
+							$(".screenshots").append("<div class=\"subshots col-xs-12\"></div>");
 						}
-						$(".screenshots .subshots:last-child").append("<div class=\"col-xs-12\"><img class=\"img-responsive\" src=\"screenshots/" + dPackage + "/" + screenshot + "\" title=\"" + screenshots[screenshot] + "\"></div>");
+						$(".screenshots .subshots:last-child").append("<div class=\"col-xs-6\"><img class=\"img-responsive\" src=\"screenshots/" + dPackage + "/" + screenshot + "\" title=\"" + screenshots[screenshot] + "\"></div>");
 						count += 1;
 					}
-					$(".changelog-link").attr("href", "changelog.html?p=" + dPackage);
+
+					$(".fullchangelog-header").click(function() {
+						$(".fullchangelog").slideToggle(function() {
+						});
+					});
+					var latest = data.version;
+					var versions = Object.keys(data.changelog).reverse();
+					for (var v in versions) {
+						var version = versions[v];
+						var panel = $("<div class=\"panel-default\"></div>");
+						panel.append(" <div class=\"panel-heading\">" + version + "</div>");
+						panel.append(" <div class=\"panel-body changelog-list\"></div>");
+						if (version === latest) {
+							panel.find(".panel-heading").append(" <div class=\"label label-info badge-label latest-version\">Current</div>");
+						}
+						var changes = data.changelog[version];
+						for (var c in changes) {
+							var change = changes[c];
+							panel.find(".changelog-list").append("<li>" + change + "</li>");
+						}
+						$(".package-versions").append(panel);
+					}
 
 					var links = data.links;
 					var lKeys = Object.keys(links);
