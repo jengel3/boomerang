@@ -129,7 +129,7 @@
 						if (count % 2 === 0) {
 							$(".screenshots").append("<div class=\"subshots col-xs-12\"></div>");
 						}
-						$(".screenshots .subshots:last-child").append("<div class=\"col-xs-6\"><img class=\"img-responsive\" src=\"screenshots/" + dPackage + "/" + screenshot + "\" title=\"" + screenshots[screenshot] + "\"></div>");
+						$(".screenshots .subshots:last-child").append("<div class=\"col-xs-6\"><img class=\"img-responsive\" src=\"screenshots/" + dPackage + "/" + screenshot + "\" title=\"" + screenshots[screenshot] + "\"><p>" + screenshots[screenshot] + "</p><br></div>");
 						count += 1;
 					}
 
@@ -141,7 +141,7 @@
 					var versions = Object.keys(data.changelog).reverse();
 					for (var v in versions) {
 						var version = versions[v];
-						var panel = $("<div class=\"panel-default\"></div>");
+						var panel = $("<div class=\"panel-default \"></div>");
 						panel.append(" <div class=\"panel-heading\">" + version + "</div>");
 						panel.append(" <div class=\"panel-body changelog-list\"></div>");
 						if (version === latest) {
