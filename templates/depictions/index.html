@@ -1,161 +1,184 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<title>Cydia Tweak</title>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="icon" href="/CydiaIcon.png">
-	
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<head>
+		<title>Cydia Tweak</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="icon" href="/repo/CydiaIcon.png">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+		<style>
+			body {background-color: #efeff4;}
+			a:link, a:visited, a:hover {text-decoration: none;}
+			h1, h2, .package-desc {margin-left: 7px;}
+			.badge-label {border-radius:1em;}
+			.panel, .list-group-item, .alert {border-radius: 0 !important;}
+			.list-group-item:last-child {margin-bottom: -1px;}
+			.subshots {text-align: center;}
+			.subshots:nth-child(1) {margin-bottom: 10px;}
+			.screenshots img {border: thin solid #BEB6D8;}
+			.package-buttons {margin-top: 10px;}
+			.repo-buttons {margin-top: 20px;}
+			.package-error {display: none;}
+			.screenshots {display: none;}
+			.fullchangelog {display: none;}
+			.latest-version {vertical-align: right;}
+		</style>
+	</head>
+	<body>
+    	<div class="container">
 
-	<style>
-		body {
-			background-color: #efeff4;
-		}
-		h1, .package-desc {
-			margin-left: 7px;
-		}
-		.badge-label {
-			border-radius:1em;
-		}
-		.panel, .list-group-item, .alert {
-		 	border-radius: 0 !important;
-		}
-		.list-group-item:last-child {
-			margin-bottom: -1px;
-		}
-		.subshots {
-			text-align: center;
-		}
-		.subshots:nth-child(1) {
-			margin-bottom: 10px;
-		}
-		.screenshots img {
-			border: thin solid #BEB6D8;
-		}
-		.package-buttons {
-			margin-top: 10px;
-		}
-		.repo-buttons {
-			margin-top: 20px;
-		}
-		a:link, a:visited, a:hover {
-			text-decoration: none;
-		}
-		.package-error {
-			display: none;
-		}
-	</style>
-</head>
-<body>
-	<div class="container">
-		<div class="package row">
-			<div class="header">
-				<h1 class="package-name"></h1>
-			</div>
-		</div>
+        	<div class="row alert alert-danger package-error"></div>
 
-		<div class="row alert alert-danger package-error"></div>
-		
-		<div class="package-info">
-			<div class="package-info row">
-				<p class="package-desc"></p>
-			</div>
+			<div class="panel row panel-default">
+            	<div class="panel-heading">
+                	<h1 class="package-name"></h1>
+					<small class="package-author"></small>
+            	</div>
+        	</div>
 
-			<i><p class="package-author"></p></i>
+        	<div class="package-info">
 
-			<div class="row panel panel-default">
-			  <div class="panel-heading">Changelog <div class="label label-primary badge-label latest-version"></div></div>
-			  <div class="panel-body changelog-list">
-			  </div>
-			</div>
+				<div class="row panel panel-default">
+					<div class="panel-heading">
+						<span class="glyphicon glyphicon-align-left"></span> Description
+					</div>
+					<p class="panel-body package-desc"></p>
+				</div>
 
-			<br>
+				<div class="row panel panel-default">
+					<div class="panel-heading">
+						<span class="glyphicon glyphicon-pencil"></span> Recent Changes
+						<div class="label label-info badge-label latest-version"></div>
+					</div>
+					<div class="panel-body changelog-list"></div>
+				</div>
 
-			<div class="row screenshots">
+				<div class="row panel panel-default">
+					<div class="panel-heading screenshots-header">
+						<span class="glyphicon glyphicon-picture"></span> Screenshots
+						<small><span class="glyphicon glyphicon-triangle-bottom"></span></small>
+					</div>
+					<div class="panel-body row screenshots"></div>
+				</div>
+
+				<div class="row panel panel-default">
+                	<div class="panel-heading fullchangelog-header">
+						<span class="glyphicon glyphicon-tasks"></span> Full Changelog
+						<small><span class="glyphicon glyphicon-triangle-bottom"></span></small>
+					</div>
+					<div class="package-info package-versions fullchangelog"></div>
+            	</div>
+
 			</div>
 
-			<div class="row package-buttons">
-				<ul class="list-group">
-				  <a href="screenshots" class="screenshots-link"><li class="list-group-item"><span class="glyphicon glyphicon-picture"></span> Screenshots</li></a>
-				  <a href="changelog" class="changelog-link"><li class="list-group-item"><span class="glyphicon glyphicon-tasks"></span> Full Changelog</li></a>
-				</ul>
-			</div>
+            <div class="row package-buttons">
+            	<ul class="list-group"></ul>
+            </div>
 
-			<div class="row repo-buttons">
-				<ul class="list-group">
-				  <a href="https://github.com/Jake0oo0/boomerang" target="_blank"><li class="list-group-item"><span class="glyphicon glyphicon-wrench"></span> Boomerang Repository</li></a>
-				  <a href="https://twitter.com/itsjake88" target="_blank"><li class="list-group-item"><span class="glyphicon glyphicon-heart"></span> Follow Boomerang Dev</li></a>
-				</ul>
-			</div>
-		</div>
+        	<div class="row repo-buttons">
+            	<ul class="list-group">
+                	<li class="list-group-item">
+						<a href="https://github.com/Jake0oo0/boomerang" target="_blank">
+                    		<span class="glyphicon glyphicon-wrench"></span> Boomerang Repository
+						</a>
+                	</li>
+					<li class="list-group-item">
+            			<a href="https://twitter.com/itsjake88" target="_blank">
+							<span class="glyphicon glyphicon-heart"></span> Follow Boomerang Dev
+						</a>
+                	</li>
+            	</ul>
+        	</div>
 
-	</div>
-	<script>
-	$(document).ready(function() {
-		var dPackage = getParameterByName("p");
+        </div>
 
-		if (!dPackage) {
-			$(".package-error").text("This package doesn't seem to exist!").css("display", "block");
-			$(".package-info").css("display", "none");
-			$(".package-name").text("Not found");
-			return;
-		}
+  		<script>
+			$(document).ready(function() {
+				var dPackage = getParameterByName("p");
+				if (!dPackage) {
+					$(".package-error").text("This package doesn't seem to exist!").css("display", "block");
+					$(".package-info").css("display", "none");
+					$(".package-name").text("Not Found");
+					return;
+				}
 
-		$.getJSON("/packages/" + dPackage + ".json", function(data) {
-			document.title = data.name + " by " + data.author;
-		  $(".package-name").text(data.name);
-		  $(".package-desc").text(data.description);
-		  $(".latest-version").text(data.version + " (latest)");
-		  $(".package-author").text("by " + data.author);
-		  var cList = $(".changelog-list");
-		  var changes = data.changelog[data.version];
-		  for (var c in changes) {
-		  	var change = changes[c];
-		  	cList.append("<li>" + change + "</li>")
-		  }
+		  		$.getJSON("packages/" + dPackage + ".json", function(data) {
+					document.title = data.name + " by " + data.author;
+					$(".package-name").text(data.name);
+					$(".package-desc").text(data.description);
+					$(".latest-version").text(data.version);
+					$(".package-author").text(" by " + data.author);
 
-		  var count = 0;
-		  var screenshots = data.screenshots;
-		  var sKeys = Object.keys(screenshots);
-		  for (var s in sKeys) {
-		  	var screenshot = sKeys[s];
+					var cList = $(".changelog-list");
+					var changes = data.changelog[data.version];
+					for (var c in changes) {
+						var change = changes[c];
+						cList.append("<li>" + change + "</li>")
+					}
 
-		  	if (count % 2 === 0) {
-		  		$(".screenshots").append("<div class=\"subshots col-xs-12\"></div>");
-		  	}
+					$(".screenshots-header").click(function() {
+						$(".screenshots").slideToggle(function() {
+						});
+					});
+					var count = 0;
+					var screenshots = data.screenshots;
+					var sKeys = Object.keys(screenshots);
+					for (var s in sKeys) {
+						var screenshot = sKeys[s];
+						if (count % 2 === 0) {
+							$(".screenshots").append("<div class=\"subshots col-xs-12\"></div>");
+						}
+						$(".screenshots .subshots:last-child").append("<div class=\"col-xs-6\"><img class=\"img-responsive\" src=\"screenshots/" + dPackage + "/" + screenshot + "\" title=\"" + screenshots[screenshot] + "\"><p>" + screenshots[screenshot] + "</p><br></div>");
+						count += 1;
+					}
 
-		  	$(".screenshots .subshots:last-child").append("<div class=\"col-xs-6\"><img class=\"img-responsive\" src=\"/images/" + screenshot + "\" title=\"" + screenshots[screenshot] + "\"></div>");
-		  	count += 1;
-		  }
+					$(".fullchangelog-header").click(function() {
+						$(".fullchangelog").slideToggle(function() {
+						});
+					});
+					var latest = data.version;
+					var versions = Object.keys(data.changelog).reverse();
+					for (var v in versions) {
+						var version = versions[v];
+						var panel = $("<div class=\"panel-default \"></div>");
+						panel.append(" <div class=\"panel-heading\">" + version + "</div>");
+						panel.append(" <div class=\"panel-body changelog-list\"></div>");
+						if (version === latest) {
+							panel.find(".panel-heading").append(" <div class=\"label label-info badge-label latest-version\">Current</div>");
+						}
+						var changes = data.changelog[version];
+						for (var c in changes) {
+							var change = changes[c];
+							panel.find(".changelog-list").append("<li>" + change + "</li>");
+						}
+						$(".package-versions").append(panel);
+					}
 
-		  $(".changelog-link").attr("href", "changelog?p=" + dPackage);
-		  $(".screenshots-link").attr("href", "screenshots?p=" + dPackage);
+					var links = data.links;
+					var lKeys = Object.keys(links);
+					for (var l in lKeys) {
+						var link = lKeys[l];
+						var wrap = $("<a href=\"" + links[link] + "\" target=\"_blank\"><li class=\"list-group-item\"></li></a>");
+						wrap.find(".list-group-item").append($.parseHTML(link));
+						$(".package-buttons .list-group").append(wrap);
+					}
+				})
 
-		  var links = data.links;
-		  var lKeys = Object.keys(links);
-		  for (var l in lKeys) {
-		  	var link = lKeys[l];
-				var wrap = $("<a href=\"" + links[link] + "\" target=\"_blank\"><li class=\"list-group-item\"></li></a>");
-				wrap.find(".list-group-item").append($.parseHTML(link));
-				$(".package-buttons .list-group").append(wrap);
-		  }
-		})
-		.fail(function() {
-			$(".package-error").text("An error occurred while retrieving package info!").css("display", "block");
-			$(".package-info").css("display", "none");
-			$(".package-name").text("Repository Error");
-			return;
-		});
+				.fail(function() {
+					$(".package-error").text("An error occurred while retrieving package info!").css("display", "block");
+					$(".package-info").css("display", "none");
+					$(".package-name").text("Repository Error");
+					return;
+				});
 
-		function getParameterByName(name) {
-		    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
-		    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
-		        results = regex.exec(location.search);
-		    return results === null ? null : decodeURIComponent(results[1].replace(/\+/g, " "));
-		}
-	});
-	</script>
-</body>
+				function getParameterByName(name) {
+					name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+					var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+					results = regex.exec(location.search);
+					return results === null ? null : decodeURIComponent(results[1].replace(/\+/g, " "));
+				}
+			});
+		</script>
+	</body>
 </html>
